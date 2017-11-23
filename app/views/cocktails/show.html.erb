@@ -6,8 +6,18 @@
         <%= @cocktail.name %>
       </div>
   </div>
-<%= link_to "All cocktails", cocktails_path %>
 
+  <div class="row">
+      <% @cocktail.doses.each do |dose|  %>
+      <div class="col-xs-12 col-sm-4">
+        <%= dose.description %>
+        <%= dose.ingredient.name %>
+      </div>
+      <% end  %>
+  </div>
+
+<%= link_to "All cocktails", cocktails_path %>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
 </div>
 
 

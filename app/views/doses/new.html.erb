@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="form-container">
+    <h1>Add a new ingredient for <%= @cocktail.name.capitalize %>!</h1>
+
+    <%= simple_form_for([@cocktail, @dose]) do |form| %>
+      <%= form.input :description %>
+      <%= form.association :ingredient %>
+
+      <div class="text-right">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
