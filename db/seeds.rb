@@ -10,9 +10,17 @@ require 'open-uri'
 require 'JSON'
 
 Ingredient.delete_all
+Cocktail.delete_all
 
 url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 JSON.parse(open(url).read)["drinks"].each do |ingredient|
   Ingredient.create(name: ingredient["strIngredient1"])
 end
+
+mojito = Cocktail.create(name: "Mojito")
+punch = Cocktail.create(name: "Petit Punch")
+sangria = Cocktail.create(name: "Sangria")
+planteur = Cocktail.create(name: "Planteur")
+vin = Cocktail.create(name: "Vin Chaud")
+jager = Cocktail.create(name: "Jäger Bomb")
