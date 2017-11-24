@@ -4,12 +4,32 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
         <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        <%= link_to cocktail_path(cocktail) do %>
+
+          <% bg_img_path = cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>
+          <div class="card" style="
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= bg_img_path %>')">
+            <div class="card-category"><%= cocktail.name %></div>
+            <div class="card-description">
+              <h2>Some stuff</h2>
+              <p>Very cool stuff, useful and smart</p>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+
+
+        <% end %>
 
       </div>
     <% end %>
   </div>
 
+
+
+
   <%= link_to "Create a new Cricri's Cocktail", new_cocktail_path %>
 
 </div>
+
 
