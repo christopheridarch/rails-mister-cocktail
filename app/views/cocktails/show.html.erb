@@ -16,7 +16,12 @@
         <% end  %>
       </div>
       <% end  %>
+      <div class="col-xs-12 col-sm-4">
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+    </div>
   </div>
+
+
 
 <%= link_to "All cocktails", cocktails_path %>
 <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
